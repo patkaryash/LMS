@@ -13,6 +13,7 @@ urlpatterns = [
     # App-specific endpoints
     path('api/users/', include('users.urls')),
     path('api/tickets/', include('tickets.urls')),
+    path('api/notifications/', include('notifications.urls')),
 
 
     # Admin interface
