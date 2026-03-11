@@ -3,6 +3,7 @@ URL configuration for LMS project - API-only backend.
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic import RedirectView
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
@@ -10,6 +11,9 @@ from rest_framework_simplejwt.views import (
 from .views import RegisterView
 
 urlpatterns = [
+    # Root redirect to API
+    path('', RedirectView.as_view(url='/api/labs/', permanent=False)),
+
     # App-specific endpoints
     path('api/users/', include('users.urls')),
     path('api/tickets/', include('tickets.urls')),
