@@ -218,3 +218,14 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='your-app-password')
 
 DEFAULT_FROM_EMAIL = 'LMS Notifications <noreply@lms-system.com>'
+
+# ---------------------------------------------------------
+# SMS CONFIGURATION (Twilio)
+# ---------------------------------------------------------
+# Set to 'console' for development (prints to terminal) or 'twilio' for production
+SMS_BACKEND = config('SMS_BACKEND', default='console')
+
+# Twilio credentials — set these in your .env file for production
+TWILIO_ACCOUNT_SID = config('TWILIO_ACCOUNT_SID', default='')
+TWILIO_AUTH_TOKEN = config('TWILIO_AUTH_TOKEN', default='')
+TWILIO_PHONE_NUMBER = config('TWILIO_PHONE_NUMBER', default='+1000000000')  # Your Twilio phone number
