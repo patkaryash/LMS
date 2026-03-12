@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bulk Import Test</title>
+</head>
+<body>
+    <h2>Bulk Import (Test UI)</h2>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <input type="file" name="file" required>
+
+        <select name="entity" required>
+            <option value="">-- Select Type --</option>
+            <option value="pcs">PCs</option>
+        </select>
+
+        <select name="lab_id" required>
+            <option value="">-- Select Lab --</option>
+            {% for lab in labs %}
+            <option value="{{ lab.id }}">{{ lab.name }}</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit">Upload</button>
+    </form>
+
+
+    {% if result %}
+        <h3>Result</h3>
+        <pre>{{ result }}</pre>
+    {% endif %}
+</body>
+</html>

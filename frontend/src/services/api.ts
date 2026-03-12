@@ -136,6 +136,33 @@ export const labsAPI = {
   },
 };
 
+// LabEquipment API (non-PC hardware)
+export const labEquipmentAPI = {
+  getAll: async (): Promise<any[]> => {
+    const response = await api.get('/lab-equipment/');
+    return response.data;
+  },
+
+  getByLab: async (labId: number): Promise<any[]> => {
+    const all = await labEquipmentAPI.getAll();
+    return all.filter((e) => e.lab === labId);
+  },
+
+  create: async (data: any): Promise<any> => {
+    const response = await api.post('/lab-equipment/', data);
+    return response.data;
+  },
+
+  update: async (id: number, data: any): Promise<any> => {
+    const response = await api.patch(`/lab-equipment/${id}/`, data);
+    return response.data;
+  },
+
+  delete: async (id: number): Promise<void> => {
+    await api.delete(`/lab-equipment/${id}/`);
+  },
+};
+
 // PCs API
 export const pcsAPI = {
   getByLab: async (labId: number): Promise<PC[]> => {

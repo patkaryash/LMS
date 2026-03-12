@@ -11,4 +11,4 @@ class Ticket(models.Model):
 
 
     def __str__(self):
-        return f"Ticket #{self.id} - {self.pc.name} - {self.status}"
+        return f"Ticket #{self.id} - {self.pc.device_name} - {self.status}"
