@@ -134,7 +134,3 @@ For detailed models, see `backend/LMS/labs/models.py`.
 ## Full Setup Guide
 For a comprehensive, step-by-step setup, see the dedicated guide: [SETUP_GUIDE.md](SETUP_GUIDE.md)
 
-## License
-- MIT (adjust as needed)
-
-If you want me to tailor this README precisely to your repo structure (manage.py location and app names), I can generate a fully customized README.md next.
