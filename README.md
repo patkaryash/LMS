@@ -129,6 +129,7 @@ For detailed models, see `backend/LMS/labs/models.py`.
 ---
 ## Contributing
 - PRs are welcome. Open an issue to discuss major changes before starting.
+- Please run `python manage.py test` before submitting a PR.
 
 ---
 ## Full Setup Guide
