@@ -1,5 +1,7 @@
 # LMS – Lab Management System
 
+<!-- This LMS project is used for testing Paperclip PR workflows. -->
+
 A Django-based Lab Management System to manage labs, PCs, and lab equipment in educational environments. This repository contains a Django project located at `backend/LMS` with apps such as `labs`, `users`, `tickets`, and more. A `frontend/` directory is present for optional UI work.
 
 ## Badges
