@@ -134,3 +134,6 @@ For detailed models, see `backend/LMS/labs/models.py`.
 ## Full Setup Guide
 For a comprehensive, step-by-step setup, see the dedicated guide: [SETUP_GUIDE.md](SETUP_GUIDE.md)
 
+
+
+<!-- YAS-226: PR workflow test after timeout fix v3 -->
