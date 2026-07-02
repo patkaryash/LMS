@@ -134,3 +134,5 @@ For detailed models, see `backend/LMS/labs/models.py`.
 ## Full Setup Guide
 For a comprehensive, step-by-step setup, see the dedicated guide: [SETUP_GUIDE.md](SETUP_GUIDE.md)
 
+
+<!-- YAS-234: LMS workspace PR creation test at 2026-07-02T19:29:35.286449+00:00 -->
