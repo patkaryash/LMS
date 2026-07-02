@@ -99,3 +99,51 @@ After the runbook is adopted, observe the next 3 runs linked to the issue.
 - Issue: YAS-65
 - Source issue: YAS-46
 - Repository: https://github.com/patkaryash/LMS
+
+
+## Exit gates for child-issue creation (YAS-186)
+
+To stop repeated run churn and duplicate child issues, every PR workflow comment run that would create a child issue must pass these gates before any mutation.
+
+### 1. Read the parent issue comments before creating a child issue
+
+Before calling the create-issue API, fetch the parent issue's comments and search for an existing child-issue reference.
+
+**Search pattern:**
+- Look for identifiers like `YAS-NNN`, issue URLs, or explicit `Created <title>` statements.
+- Look for the fingerprint or title of the proposed child issue.
+
+**Evidence required:**
+- A one-line summary of what the comment scan found (e.g., "No matching child issue found" or "Found YAS-117 referenced in comment <id>").
+
+### 2. Exit with no new work product if a linked issue already exists
+
+If the scan finds an existing child issue that matches the proposed sub-task:
+
+- Do NOT create a new issue.
+- Do NOT post a duplicate comment.
+- Do NOT change the parent issue status.
+- Exit the run immediately and report the existing issue reference.
+
+**Evidence required:**
+- The existing child issue identifier and URL.
+- A short statement that the run exited because the work product already exists.
+
+### 3. Single-successful-run disposition gate
+
+Once a work product (child issue, comment, or code change) has been accepted and recorded, the issue must be marked `done` and not reprocessed.
+
+**Gate rules:**
+- When a run completes the task, it posts a closing comment with the accepted work product and updates the issue status to `done`.
+- Subsequent runs must first check the issue status. If the status is already `done` and the closing comment is present, the run exits with no mutation.
+- No second run may re-mark the issue `done` or recreate the same work product.
+
+**Evidence required:**
+- The issue status returned by the API before any mutation.
+- If status is `done`, the closing comment URL or identifier that justifies the exit.
+
+## YAS-186 acceptance checklist
+
+- [x] Before creating a child issue, read parent issue comments and check for an existing created-issue reference.
+- [x] If a linked issue already exists, exit with no new work product and leave the parent issue status unchanged.
+- [x] Document a single-successful-run disposition gate so repeated no-op completions cannot churn.
