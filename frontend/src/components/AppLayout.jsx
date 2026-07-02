@@ -1,6 +1,7 @@
 import React from 'react';
 import Sidebar from './Sidebar.jsx';
 import HeaderBar from './HeaderBar.jsx';
+import Footer from './Footer.tsx';
 import { useColorMode } from '../contexts/ThemeContext';
 
 const AppLayout = ({ children }) => {
@@ -14,7 +15,7 @@ const AppLayout = ({ children }) => {
   }, [mode]);
 
   return (
-    <div className={`min-h-screen ${mode === 'dark' ? 'bg-[#1e1e1e] text-gray-100' : 'bg-gray-50 text-gray-900'}`}>
+    <div className={`min-h-screen flex flex-col ${mode === 'dark' ? 'bg-[#1e1e1e] text-gray-100' : 'bg-gray-50 text-gray-900'}`}>
       {/* Fixed header with logo + college name + top nav */}
       <HeaderBar />
 
@@ -22,11 +23,13 @@ const AppLayout = ({ children }) => {
       <Sidebar />
 
       {/* Main content on the right, shifts when sidebar expands */}
-      <main className="transition-all duration-300 ease-out ml-16 peer-hover:ml-64 pt-14">
+      <main className="flex-1 transition-all duration-300 ease-out ml-16 peer-hover:ml-64 pt-14">
         <div className="p-4 sm:p-6 md:p-8">
           {children}
         </div>
       </main>
+
+      <Footer />
     </div>
   );
 };
