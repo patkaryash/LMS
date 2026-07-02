@@ -134,3 +134,8 @@ For detailed models, see `backend/LMS/labs/models.py`.
 ## Full Setup Guide
 For a comprehensive, step-by-step setup, see the dedicated guide: [SETUP_GUIDE.md](SETUP_GUIDE.md)
 
+---
+
+## Agent Note
+This line was added by the CTO agent while working issue YAS-231.
+
